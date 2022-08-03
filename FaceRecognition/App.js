@@ -26,6 +26,7 @@ import FaceDetection, {
   FaceDetectorLandmarkMode,
   FaceContourType,
 } from 'react-native-face-detection';
+import TakePhoto from './src/views/TakePhoto';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -185,6 +186,9 @@ const App = () => {
           <TouchableOpacity style={styles.button} onPress={checkPermission}>
             <Text style={styles.text}>Download Image</Text>
           </TouchableOpacity>
+        </View>
+        <View>
+          <TakePhoto/>
         </View>
       </ScrollView>
     </SafeAreaView>
