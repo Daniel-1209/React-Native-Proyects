@@ -55,6 +55,7 @@ const TakePhoto = () => {
   };
 
   const processFaces = async imagePath => {
+    let countFacesPhoto = 0;
     const options = {
       landmarkMode: FaceDetectorLandmarkMode.ALL,
       contourMode: FaceDetectorContourMode.ALL,
@@ -62,7 +63,7 @@ const TakePhoto = () => {
 
     const faces = await FaceDetection.processImage(imagePath, options);
     console.log('\nCaras', faces.length);
-    setCountFaces(faces.length);
+    // setCountFaces(faces.length);
     faces.forEach(face => {
       console.log('Head rotation on X axis: ', face.headEulerAngleX);
       console.log('Head rotation on Y axis: ', face.headEulerAngleY);
@@ -71,9 +72,14 @@ const TakePhoto = () => {
       console.log('Left eye open probability: ', face.leftEyeOpenProbability);
       console.log('Right eye open probability: ', face.rightEyeOpenProbability);
       console.log('Smiling probability: ', face.smilingProbability);
+
+
+      if ( face.headEulerAngleX >= -12 && face.headEulerAngleX <= 16 && face.headEulerAngleY >= -12 && face.headEulerAngleY <= 16){
+        countFacesPhoto+=1;
+      }
       
     });
-    
+    setCountFaces(countFacesPhoto);
   };
 
   const searcFaces = async path => {

@@ -25,6 +25,7 @@ import FaceDetection, {
   FaceDetectorContourMode,
   FaceDetectorLandmarkMode,
   FaceContourType,
+  FaceLandmarkType
 } from 'react-native-face-detection';
 import TakePhoto from './src/views/TakePhoto';
 
@@ -117,6 +118,7 @@ const App = () => {
   };
 
   async function processFaces(imagePath) {
+    let countFaces = 0;
     const options = {
       landmarkMode: FaceDetectorLandmarkMode.ALL,
       contourMode: FaceDetectorContourMode.ALL,
@@ -132,6 +134,28 @@ const App = () => {
       console.log('Left eye open probability: ', face.leftEyeOpenProbability);
       console.log('Right eye open probability: ', face.rightEyeOpenProbability);
       console.log('Smiling probability: ', face.smilingProbability);
+
+      if ( face.headEulerAngleX >= -12 && face.headEulerAngleX <= 16 && face.headEulerAngleY >= -12 && face.headEulerAngleY <= 16){
+        countFaces+=1;
+      }
+      // console.log('Ahora', face.faceContours.length);
+      // face.faceContours.forEach(contour => {
+      //   if (contour.type === FaceContourType.FACE) {
+      //     console.log('Face outline points: ', contour.points);
+      //   }
+      // });
+
+      // face.landmarks.forEach(landmark => {
+      //   if (landmark.type === FaceLandmarkType.LEFT_EYE) {
+      //     console.log('Left eye outline points: ', landmark.position);
+      //   } else if (landmark.type === FaceLandmarkType.RIGHT_EYE) {
+      //     console.log('Right eye outline points: ', landmark.position);
+      //   }
+      //   // console.log(landmark)
+      // });
+      console.log('Caras validas => ',countFaces )
+      console.log('\n');
+
     });
   }
 
