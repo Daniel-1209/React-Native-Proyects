@@ -2,16 +2,16 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
 import {Text, Button, Provider} from 'react-native-paper';
 import Sound from 'react-native-sound';
-import letterImgA from './assets/letraA.png';
-import letterImgE from './assets/letraE.png';
-import letterImgI from './assets/letraI.png';
-import letterImgO from './assets/letraO.png';
-import letterImgU from './assets/letraU.png';
-import audioA from './assets/vocalA.mp3';
-import audioE from './assets/vocalE.mp3';
-import audioI from './assets/vocalI.mp3';
-import audioO from './assets/vocalO.mp3';
-import audioU from './assets/vocalU.mp3';
+import letterImgA from '../../../../assets/letraA.png';
+import letterImgE from '../../../../assets/letraE.png';
+import letterImgI from '../../../../assets/letraI.png';
+import letterImgO from '../../../../assets/letraO.png';
+import letterImgU from '../../../../assets/letraU.png';
+import audioA from '../../../../assets/vocalA.mp3';
+import audioE from '../../../../assets/vocalE.mp3';
+import audioI from '../../../../assets/vocalI.mp3';
+import audioO from '../../../../assets/vocalO.mp3';
+import audioU from '../../../../assets/vocalU.mp3';
 
 const ImagesOfLetters = () => {
   const [position, setPosition] = useState(

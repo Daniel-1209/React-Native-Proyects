@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
 import {Modal, Portal, Text, Button, Provider} from 'react-native-paper';
 import Video from 'react-native-video';
-import stepBack from './assets/stepBack.mp4';
-import stayWithMe from './assets/stayWithMe.mp4';
+import stepBack from '../../../../assets/stepBack.mp4';
+import stayWithMe from '../../../../assets/stayWithMe.mp4';
 
 const Videos = () => {
   const [visible, setVisible] = useState(false);

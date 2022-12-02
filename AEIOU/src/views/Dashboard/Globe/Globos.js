@@ -7,22 +7,22 @@ import Animated, {
   withTiming,
   withSpring,
 } from 'react-native-reanimated';
-import globoImg from './assets/globo.png';
-import abejaImg from './assets/abeja.png';
-import elefanteImg from './assets/elefante.jpeg';
-import iglesiaImg from './assets/iglesia.jpg';
-import osoImg from './assets/oso.png';
-import unicorniImg from './assets/unicornio2.png';
-import audioA from './assets/vocalA.mp3';
-import audioE from './assets/vocalE.mp3';
-import audioI from './assets/vocalI.mp3';
-import audioO from './assets/vocalO.mp3';
-import audioU from './assets/vocalU.mp3';
-import errorAudio from './assets/errorsonido.mp3';
+import globoImg from '../../../../assets/globo.png';
+import abejaImg from '../../../../assets/abeja.png';
+import elefanteImg from '../../../../assets/elefante.jpeg';
+import iglesiaImg from '../../../../assets/iglesia.jpg';
+import osoImg from '../../../../assets/oso.png';
+import unicorniImg from '../../../../assets/unicornio2.png';
+import audioA from '../../../../assets/vocalA.mp3';
+import audioE from '../../../../assets/vocalE.mp3';
+import audioI from '../../../../assets/vocalI.mp3';
+import audioO from '../../../../assets/vocalO.mp3';
+import audioU from '../../../../assets/vocalU.mp3';
+import errorAudio from '../../../../assets/errorsonido.mp3';
 
 import Sound from 'react-native-sound';
 
-const Globos = () => {
+const Globes = () => {
   const [letters, setLetters] = useState([
     {
       name: 'A',
@@ -323,4 +323,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Globos;
+export default Globes;
