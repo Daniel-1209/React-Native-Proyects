@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TextInput, Platform} from 'react-native';
 import theme from '../../../utils/theme';
-import {Picker} from '@react-native-picker/picker';
+import {Picker, PickerIOS} from '@react-native-picker/picker';
 
-const Form = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState();
+const Form = ({setInterest, setMonths, months, setCapital}) => {
   return (
     <View style={styles.viewForm}>
       {/* Inputs */}
@@ -13,22 +12,25 @@ const Form = () => {
           style={styles.input}
           placeholder="Cantidad A Pedir"
           keyboardType="numeric"
+          onChange={e => setCapital(e.nativeEvent.text)}
         />
         <TextInput
           style={[styles.input, styles.inputPercentage]}
           placeholder="Interes"
           keyboardType="numeric"
+          onChange={e => setInterest(e.nativeEvent.text)}
         />
       </View>
       {/* Pick select */}
       <Picker
-      enabled   
-        selectedValue={selectedLanguage}
-        onValueChange={(itemValue, itemIndex) =>
-          setSelectedLanguage(itemValue)
-        }>
-        <Picker.Item label="Java" value="java" />
-        <Picker.Item label="JavaScript" value="js" />
+        style={picketSelectStyles.input}
+        selectedValue={months}
+        onValueChange={(itemValue, itemIndex) => setMonths(itemValue)}>
+        <Picker.Item label="Selecciona Un Plazo" value={null} />
+        <Picker.Item label="3 Meses" value={3} />
+        <Picker.Item label="6 Meses" value={6} />
+        <Picker.Item label="12 Meses" value={12} />
+        <Picker.Item label="24 Meses" value={24} />
       </Picker>
     </View>
   );
@@ -37,7 +39,7 @@ const Form = () => {
 const styles = StyleSheet.create({
   viewForm: {
     position: 'absolute',
-    bottom: -90,
+    bottom: 0,
     width: '85%',
     paddingHorizontal: 50,
     backgroundColor: theme.COLORS.PRIMARI_DARK,
@@ -64,6 +66,39 @@ const styles = StyleSheet.create({
   inputPercentage: {
     width: '40%',
     marginLeft: 5,
+  },
+});
+
+const picketSelectStyles = StyleSheet.create({
+  input: {
+    ...Platform.select({
+      ios: {
+        fontSize: 16,
+        paddingVertical: 12,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: 'grey',
+        borderRadius: 4,
+        color: 'black',
+        paddingRight: 30,
+        backgroundColor: '#fff',
+        marginLeft: -5,
+        marginRight: -5,
+      },
+      android: {
+        fontSize: 16,
+        paddingVertical: 12,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: 'grey',
+        borderRadius: 4,
+        color: 'black',
+        paddingRight: 30,
+        backgroundColor: '#fff',
+        marginLeft: -5,
+        marginRight: -5,
+      },
+    }),
   },
 });
 
