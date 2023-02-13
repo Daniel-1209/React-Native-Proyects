@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   SafeAreaView,
@@ -48,6 +48,14 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    if (capital && interest && months) {
+      calculate();
+    } else {
+      clean();
+    }
+  }, [capital, interest, months]);
+
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -63,7 +71,13 @@ const App = () => {
         />
       </SafeAreaView>
       {/* Center Information */}
-      <CalcultationResult errorMessage={errorMessage} />
+      <CalcultationResult
+        capital={capital}
+        interest={interest}
+        months={months}
+        total={total}
+        errorMessage={errorMessage}
+      />
       {/* Footer And Submit Button */}
       <Footer calculate={calculate} />
     </>
