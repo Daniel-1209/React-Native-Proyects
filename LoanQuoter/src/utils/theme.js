@@ -1,6 +1,6 @@
 export default {
   COLORS: {
-    PRIMARI: '#0098D3',
-    PRIMARI_DARK: '#006691',
+    PRIMARI: '#00b347',
+    PRIMARI_DARK: '#00491e',
   },
 };
