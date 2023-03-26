@@ -1,25 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
-import {Modal, Portal, Text, Button, Provider} from 'react-native-paper';
+import {
+  Modal,
+  Portal,
+  Text,
+  Button,
+  Provider,
+  IconButton,
+} from 'react-native-paper';
 import Video from 'react-native-video';
-import stepBack from '../../../../assets/stepBack.mp4';
-import stayWithMe from '../../../../assets/stayWithMe.mp4';
 
 const Videos = () => {
   const [visible, setVisible] = useState(false);
   const [videoNow, setVideoNow] = useState({});
+  const [inPlay, setInPlat] = useState(false);
   const [listVideos, setListVideos] = useState([
     {
       url: '',
-      source: stepBack,
+      source: require('../../../../assets/stepBack.mp4'),
       name: 'Step Back',
-      imagenCover: '',
+      imagenCover: require('../../../../assets/letraO.png'),
     },
     {
       url: '',
-      source: stayWithMe,
+      source: require('../../../../assets/stayWithMe.mp4'),
       name: 'Stay With Me',
-      imagenCover: '',
+      imagenCover: require('../../../../assets/letraO.png'),
     },
   ]);
 
@@ -34,25 +40,31 @@ const Videos = () => {
         {/* List videos */}
         {listVideos.map((v, i) => (
           <View key={i} style={styles.containerVideo}>
-            <Text>Video {v.name}</Text>
-            <Video
-              controls
-              paused
-              resizeMode="contain"
-              source={v.source} // Can be a URL or a local file.
-              onBuffer={this.onBuffer} // Callback when remote video is buffering
-              onError={this.videoError} // Callback when video cannot be loaded
-              style={styles.backgroundVideo}
-            />
-            <Button
-              style={{position: 'absolute', top: 0, right: 0}}
+            <Text
+              style={{
+                position: 'absolute',
+                alignSelf: 'center',
+                zIndex: 10,
+                bottom: 5,
+                fontSize: 20,
+              }}>
+              Video {v.name}
+            </Text>
+            <Image source={v.imagenCover} style={styles.backgroundVideo} />
+            <IconButton
+              icon="play"
+              size={50}
+              style={{
+                // backgroundColor: 'red',
+                position: 'absolute',
+                alignSelf: 'center',
+                bottom: '40%',
+              }}
               onPress={() => {
                 setVideoNow(v);
                 showModal();
               }}
-              mode="contained">
-              Agrandar
-            </Button>
+            />
           </View>
         ))}
       </View>
@@ -83,25 +95,24 @@ const Videos = () => {
 
 const styles = StyleSheet.create({
   backgroundVideo: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
+    height: 300,
+    resizeMode: 'center',
   },
   containerVideos: {
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
     height: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
   },
   containerVideo: {
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     marginTop: 10,
     width: 400,
     height: 300,
-    borderWidth: 3,
+    borderRadius: 10,
+    borderColor:'gray',
+    borderWidth: 1,
   },
 });
 
