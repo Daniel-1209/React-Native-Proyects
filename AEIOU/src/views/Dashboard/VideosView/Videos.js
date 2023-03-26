@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import {
   Modal,
   Portal,
@@ -16,17 +16,59 @@ const Videos = () => {
   const [inPlay, setInPlat] = useState(false);
   const [listVideos, setListVideos] = useState([
     {
-      url: '',
-      source: require('../../../../assets/stepBack.mp4'),
-      name: 'Step Back',
-      imagenCover: require('../../../../assets/letraO.png'),
+      urlYoutube: 'https://www.youtube.com/watch?v=q8aD-OS7kn8',
+      source: require('../../../../assets/Videos/v01.mp4'),
+      name: 'Aprende a pronunciar Las Vocales en Español aeiou',
+      imagenCover: require('../../../../assets/Videos/i01.jpeg'),
     },
     {
-      url: '',
-      source: require('../../../../assets/stayWithMe.mp4'),
-      name: 'Stay With Me',
-      imagenCover: require('../../../../assets/letraO.png'),
+      urlYoutube: 'https://www.youtube.com/watch?v=CqTXFbnG0ag&t=1s',
+      source: require('../../../../assets/Videos/v02.mp4'),
+      name: 'Ronda De Las Vocales - MundoCanticuentos',
+      imagenCover: require('../../../../assets/Videos/i02.jpeg'),
     },
+    {
+      urlYoutube: 'https://www.youtube.com/watch?v=-2b3sNObuwM',
+      source: require('../../../../assets/Videos/v03.mp4'),
+      name: 'Las Vocales - Aprende las vocales',
+      imagenCover: require('../../../../assets/Videos/i03.jpeg'),
+    },
+    {
+      urlYoutube: 'https://www.youtube.com/watch?v=Bf_li_H-J8M',
+      source: require('../../../../assets/Videos/v04.mp4'),
+      name: 'La Risa de la Vocales - Canciones y Clásicos Infantiles',
+      imagenCover: require('../../../../assets/Videos/i04.jpeg'),
+    },
+    {
+      urlYoutube: 'https://www.youtube.com/watch?v=4Dnw1Nxo5bs',
+      source: require('../../../../assets/Videos/v05.mp4'),
+      name: 'Las vocales - Canciones infantiles - Canta y baila',
+      imagenCover: require('../../../../assets/Videos/i05.jpeg'),
+    },
+    {
+      urlYoutube: 'https://www.youtube.com/watch?v=hUmcjGvWaGc&t=152s',
+      source: require('../../../../assets/Videos/v06.mp4'),
+      name: 'Las vocales para niños - Aprender las vocales - a e i o u',
+      imagenCover: require('../../../../assets/Videos/i06.jpeg'),
+    },
+    {
+      urlYoutube: 'https://www.youtube.com/watch?v=D6ma0yF1PiE',
+      source: require('../../../../assets/Videos/v07.mp4'),
+      name: 'Un Lugar Muy Divertido ♫ Canciones infantiles ♫ Plim Plim',
+      imagenCover: require('../../../../assets/Videos/i07.jpeg'),
+    },
+    {
+      urlYoutube: 'https://www.youtube.com/watch?v=Rj4RwPRCQVo&t=119s',
+      source: require('../../../../assets/Videos/v08.mp4'),
+      name: 'Plim Plim - Aprendemos las Vocales - Videos Educativos',
+      imagenCover: require('../../../../assets/Videos/i08.jpeg'),
+    },
+    // {
+    //   urlYoutube: '',
+    //   source: require('../../../../assets/Videos/v02.mp4'),
+    //   name: '',
+    //   imagenCover: require('../../../../assets/Videos/i02.jpeg'),
+    // },
   ]);
 
   const showModal = () => setVisible(true);
@@ -36,7 +78,7 @@ const Videos = () => {
   return (
     <>
       {/* Main Body */}
-      <View style={styles.containerVideos}>
+      <ScrollView contentContainerStyle={styles.containerVideos}>
         {/* List videos */}
         {listVideos.map((v, i) => (
           <View key={i} style={styles.containerVideo}>
@@ -45,7 +87,8 @@ const Videos = () => {
                 position: 'absolute',
                 alignSelf: 'center',
                 zIndex: 10,
-                bottom: 5,
+                bottom: 0,
+                textAlign:'center',
                 fontSize: 20,
               }}>
               Video {v.name}
@@ -67,7 +110,7 @@ const Videos = () => {
             />
           </View>
         ))}
-      </View>
+      </ScrollView>
       {/* Modal */}
       <Provider>
         <Portal>
@@ -95,24 +138,28 @@ const Videos = () => {
 
 const styles = StyleSheet.create({
   backgroundVideo: {
-    height: 300,
-    resizeMode: 'center',
+    height: 180,
+    width: 280,
+    marginTop: 5,
+    marginLeft:'auto',
+    marginRight:'auto'
   },
   containerVideos: {
     // backgroundColor: 'blue',
-    height: '100%',
+    // height: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
   },
   containerVideo: {
-    // backgroundColor: 'red',
+    backgroundColor: 'white',
     marginTop: 10,
-    width: 400,
-    height: 300,
+    margin: 20,
+    width: 320,
+    height: 250,
     borderRadius: 10,
-    borderColor:'gray',
-    borderWidth: 1,
+    borderColor: 'gray',
+    // borderWidth: 1,
   },
 });
 
