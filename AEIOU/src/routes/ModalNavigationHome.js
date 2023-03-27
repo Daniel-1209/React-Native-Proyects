@@ -17,7 +17,11 @@ const ModalNavigationHome = () => {
       <Stack.Screen
         name="HomeHome"
         component={Home}
-        options={{title: 'MENU PRINCIPAL', headerTitleAlign: 'center'}}
+        options={{
+          title: 'MENU PRINCIPAL',
+          headerTitleAlign: 'center',
+          headerShown: true,
+        }}
       />
       <Stack.Screen
         name="ImagesOfLetters"
