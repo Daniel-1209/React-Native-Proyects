@@ -12,6 +12,7 @@ const Stack = createNativeStackNavigator();
 const ModalNavigationHome = () => {
   return (
     <Stack.Navigator
+      screenOptions={{headerShown: false}}
       defaultScreenOptions="lists">
       <Stack.Screen
         name="HomeHome"

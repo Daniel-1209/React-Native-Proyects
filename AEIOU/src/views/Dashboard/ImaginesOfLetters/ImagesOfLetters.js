@@ -67,17 +67,16 @@ const ImagesOfLetters = () => {
       <View
         style={{
           //   backgroundColor: 'red',
-          height: '80%',
+          height: '70%',
           alignItems: 'center',
           justifyContent: 'center',
         }}>
         <View
           onTouchStart={() => playSound(letters[position].audio)}
           style={{
-            backgroundColor: '#d1eaf9',
+            backgroundColor: 'white',
             height: '80%',
             elevation: 10,
-            padding: 30,
             borderRadius: 20,
           }}>
           <Image
@@ -92,7 +91,8 @@ const ImagesOfLetters = () => {
       {/* Buttons content */}
       <View
         style={{
-          //   backgroundColor: 'green',
+          // backgroundColor: 'green',
+          // height:'20%',
           width: '100%',
           marginTop: 30,
           flexDirection: 'row',
