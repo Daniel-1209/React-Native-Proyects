@@ -12,12 +12,11 @@ const Stack = createNativeStackNavigator();
 const ModalNavigationHome = () => {
   return (
     <Stack.Navigator
-      screenOptions={{headerShown: false}}
       defaultScreenOptions="lists">
       <Stack.Screen
         name="HomeHome"
         component={Home}
-        options={{title: 'Menu', headerTitleAlign: 'center'}}
+        options={{title: 'MENU PRINCIPAL', headerTitleAlign: 'center'}}
       />
       <Stack.Screen
         name="ImagesOfLetters"
@@ -32,7 +31,7 @@ const ModalNavigationHome = () => {
       <Stack.Screen
         name="Videos"
         component={Videos}
-        options={{title: 'Videos', headerTitleAlign: 'center'}}
+        options={{title: 'Videos Musicales', headerTitleAlign: 'center'}}
       />
     </Stack.Navigator>
   );
