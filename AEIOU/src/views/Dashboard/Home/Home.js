@@ -6,49 +6,63 @@ const Home = ({navigation}) => {
   return (
     <View style={styles.body}>
       {/* Games Section */}
-      <Text style={styles.sectionTitle}>
-        {' '}
-        <Icon name="gamepad" style={{fontSize: 30}} /> JUEGOS
-      </Text>
-      <View style={styles.section}>
-        {/* Container to Letters */}
-        <View
-          onTouchStart={() => navigation.navigate('ImagesOfLetters')}
-          style={styles.container}>
-          <Image
-            source={require('../../../../assets/letrasE.png')}
-            style={styles.containerImage}
-          />
-          <Text style={styles.containerTitle}>Letras</Text>
+      <>
+        <Text style={styles.sectionTitle}>
+          {' '}
+          <Icon name="gamepad" style={{fontSize: 30}} /> JUEGOS
+        </Text>
+        <View style={styles.section}>
+          {/* Container to Letters */}
+          <View
+            onTouchStart={() => navigation.navigate('ImagesOfLetters')}
+            style={styles.container}>
+            <Image
+              source={require('../../../../assets/letrasE.png')}
+              style={styles.containerImage}
+            />
+            <Text style={styles.containerTitle}>Letras</Text>
+          </View>
+          {/* Container to Globes */}
+          <View
+            onTouchStart={() => navigation.navigate('Globes')}
+            style={styles.container}>
+            <Image
+              source={require('../../../../assets/globo.png')}
+              style={styles.containerImage}
+            />
+            <Text style={styles.containerTitle}>Globos</Text>
+          </View>
+          {/* Container to Draw */}
+          <View
+            onTouchStart={() => navigation.navigate('Draw')}
+            style={styles.container}>
+            <Image
+              source={require('../../../../assets/logoDubujar.png')}
+              style={styles.containerImage}
+            />
+            <Text style={styles.containerTitle}>Dibujar</Text>
+          </View>
         </View>
-        {/* Container to Globes */}
-        <View
-          onTouchStart={() => navigation.navigate('Globes')}
-          style={styles.container}>
-          <Image
-            source={require('../../../../assets/globo.png')}
-            style={styles.containerImage}
-          />
-          <Text style={styles.containerTitle}>Globos</Text>
-        </View>
-      </View>
+      </>
       {/* Multimedia Section */}
-      <Text style={styles.sectionTitle}>
-        {' '}
-        <Icon name="image" style={{fontSize: 25}} /> MULTIMEDIA
-      </Text>
-      <View style={styles.section}>
-        {/* Container to Videos */}
-        <View
-          onTouchStart={() => navigation.navigate('Videos')}
-          style={styles.container}>
-          <Image
-            source={require('../../../../assets/logoVideo.png')}
-            style={styles.containerImage}
-          />
-          <Text style={styles.containerTitle}>Videos Musicales</Text>
+      <>
+        <Text style={styles.sectionTitle}>
+          {' '}
+          <Icon name="image" style={{fontSize: 25}} /> MULTIMEDIA
+        </Text>
+        <View style={styles.section}>
+          {/* Container to Videos */}
+          <View
+            onTouchStart={() => navigation.navigate('Videos')}
+            style={styles.container}>
+            <Image
+              source={require('../../../../assets/logoVideo.png')}
+              style={styles.containerImage}
+            />
+            <Text style={styles.containerTitle}>Videos Musicales</Text>
+          </View>
         </View>
-      </View>
+      </>
     </View>
   );
 };
