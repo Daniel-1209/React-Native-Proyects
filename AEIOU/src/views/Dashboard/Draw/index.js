@@ -12,30 +12,33 @@ const Draw = () => {
     require('../../../../assets/DibujoLetras/mayU.png'),
   ];
   const [position, setPosition] = useState(0);
-  const [width, setWidith] = useState(860);
+  const [width, setWidith] = useState(172);
   const [height, setHeight] = useState(172);
 
   useEffect(() => {
-    const widthNow = Dimensions.get('window').width;
-    const heigthNow = Dimensions.get('window').height;
+    const widthNow = Math.trunc(Dimensions.get('window').width);
+    const heigthNow = Math.trunc(Dimensions.get('window').height);
+    const scaleNow = Dimensions.get('window').scale;
 
     console.log('ancho => ' + widthNow);
     console.log('alto => ' + heigthNow);
+    console.log('alto => ' + scaleNow);
 
-    setWidith(widthNow - (widthNow % 172));
-    setHeight(heigthNow - (heigthNow % 172) - 172);
+    setWidith(widthNow - (widthNow % (346 / scaleNow)));
+    setHeight(heigthNow - (heigthNow % 346) / scaleNow - 346 / scaleNow);
   }, []);
 
   useEffect(() => {
     Dimensions.addEventListener('change', ({window}) => {
-      const widthNow = window.width;
-      const heigthNow = window.height;
+      const widthNow = Math.trunc(window.width);
+      const heigthNow = Math.trunc(window.height);
+      const scaleNow = window.scale;
 
       console.log('ancho => ' + widthNow);
       console.log('alto => ' + heigthNow);
 
-      setWidith(widthNow - (widthNow % 172));
-      setHeight(heigthNow - (heigthNow % 172) - 172);
+      setWidith(widthNow - (widthNow % 346) / scaleNow);
+      setHeight(heigthNow - (heigthNow % 346) / scaleNow - 346 / scaleNow);
     });
   }, []);
 
