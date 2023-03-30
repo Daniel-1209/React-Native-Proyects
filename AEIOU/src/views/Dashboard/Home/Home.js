@@ -1,69 +1,83 @@
 import React from 'react';
-import {Image, Text, View, StyleSheet} from 'react-native';
+import {Image, Text, View, StyleSheet, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Home = ({navigation}) => {
   return (
-    <View style={styles.body}>
+    <ScrollView style={styles.body}>
       {/* Games Section */}
       <>
+        {/* Title */}
         <Text style={styles.sectionTitle}>
           {' '}
           <Icon name="gamepad" style={{fontSize: 30}} /> JUEGOS
         </Text>
-        <View style={styles.section}>
+        {/* Content */}
+        <ScrollView horizontal={true} style={styles.section}>
           {/* Container to Letters */}
           <View
-            onTouchStart={() => navigation.navigate('ImagesOfLetters')}
+            // onTouchStart={() => navigation.navigate('ImagesOfLetters')}
             style={styles.container}>
             <Image
               source={require('../../../../assets/letrasE.png')}
               style={styles.containerImage}
             />
-            <Text style={styles.containerTitle}>Letras</Text>
+            <Text
+              onPress={() => navigation.navigate('ImagesOfLetters')}
+              style={styles.containerTitle}>
+              Letras
+            </Text>
           </View>
           {/* Container to Globes */}
-          <View
-            onTouchStart={() => navigation.navigate('Globes')}
-            style={styles.container}>
+          <View style={styles.container}>
             <Image
               source={require('../../../../assets/globo.png')}
               style={styles.containerImage}
             />
-            <Text style={styles.containerTitle}>Globos</Text>
+            <Text
+              onPress={() => navigation.navigate('Globes')}
+              style={styles.containerTitle}>
+              Globos
+            </Text>
           </View>
           {/* Container to Draw */}
-          <View
-            onTouchStart={() => navigation.navigate('Draw')}
-            style={styles.container}>
+          <View style={styles.container}>
             <Image
               source={require('../../../../assets/logoDubujar.png')}
               style={styles.containerImage}
             />
-            <Text style={styles.containerTitle}>Dibujar</Text>
+            <Text
+              onPress={() => navigation.navigate('Draw')}
+              style={styles.containerTitle}>
+              Dibujar
+            </Text>
           </View>
-        </View>
+        </ScrollView>
       </>
       {/* Multimedia Section */}
       <>
+        {/* Title */}
         <Text style={styles.sectionTitle}>
           {' '}
           <Icon name="image" style={{fontSize: 25}} /> MULTIMEDIA
         </Text>
-        <View style={styles.section}>
+        {/* Content */}
+        <ScrollView horizontal={true} style={styles.section}>
           {/* Container to Videos */}
-          <View
-            onTouchStart={() => navigation.navigate('Videos')}
-            style={styles.container}>
+          <View style={styles.container}>
             <Image
               source={require('../../../../assets/logoVideo.png')}
               style={styles.containerImage}
             />
-            <Text style={styles.containerTitle}>Videos Musicales</Text>
+            <Text
+              onPress={() => navigation.navigate('Videos')}
+              style={styles.containerTitle}>
+              Videos Musicales
+            </Text>
           </View>
-        </View>
+        </ScrollView>
       </>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -73,7 +87,6 @@ const styles = StyleSheet.create({
   section: {
     // backgroundColor: 'green',
     marginLeft: 50,
-    flexDirection: 'row',
     padding: 20,
   },
   container: {
@@ -96,8 +109,8 @@ const styles = StyleSheet.create({
     color: 'black',
     textTransform: 'uppercase',
     // backgroundColor: 'pink',
-    marginTop: 'auto',
-    marginBottom: 'auto',
+    height: 58,
+    textAlignVertical: 'center',
   },
 });
 
