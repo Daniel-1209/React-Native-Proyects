@@ -29,48 +29,50 @@ const Globes = () => {
       img: abejaImg,
       audio: audioA,
       labelImg: 'A-BE-JA',
-      x: Math.floor(Math.random() * (700 - 0 + 1) + 0),
-      y: Math.floor(Math.random() * (300 - 0 + 1) + 0),
+      x: 0,
+      y: 0,
     },
     {
       name: 'E',
       img: elefanteImg,
       audio: audioE,
       labelImg: 'E-LE-FAN-TE',
-      x: Math.floor(Math.random() * (700 - 0 + 1) + 0),
-      y: Math.floor(Math.random() * (300 - 0 + 1) + 0),
+      x: 0,
+      y: 0,
     },
     {
       name: 'I',
       img: iglesiaImg,
       audio: audioI,
       labelImg: 'I-GLE-SI-A',
-      x: Math.floor(Math.random() * (700 - 0 + 1) + 0),
-      y: Math.floor(Math.random() * (300 - 0 + 1) + 0),
+      x: 0,
+      y: 0,
     },
     {
       name: 'O',
       img: osoImg,
       audio: audioO,
       labelImg: 'O-SO',
-      x: Math.floor(Math.random() * (700 - 0 + 1) + 0),
-      y: Math.floor(Math.random() * (300 - 0 + 1) + 0),
+      x: 0,
+      y: 0,
     },
     {
       name: 'U',
       img: unicorniImg,
       audio: audioU,
       labelImg: 'U-NI-COR-NI-O',
-      x: Math.floor(Math.random() * (700 - 0 + 1) + 0),
-      y: Math.floor(Math.random() * (300 - 0 + 1) + 0),
+      x: 0,
+      y: 0,
     },
   ]);
   const [position, setPosition] = useState(0);
   const [maxWidth, setMaxWidth] = useState(
-    Dimensions.get('window').width - 500,
+    // (78 * Dimensions.get('window').width) / 100 - 100,
+    Dimensions.get('window').width - 100,
   );
   const [maxHeigth, setMaxHeigth] = useState(
-    Dimensions.get('window').height - 450,
+    // Dimensions.get('window').height - 200,
+    (78 * Dimensions.get('window').height) / 100 - 200,
   );
 
   const playSound = sss => {
@@ -143,12 +145,14 @@ const Globes = () => {
     <View style={styles.viewMain}>
       {/* View left */}
       <View style={styles.viewLeft}>
+        {/* letter */}
         <View style={styles.conteinerLetter}>
-          <Text style={{fontSize: 40, textAlign: 'center'}}>Explota</Text>
+          <Text adjustsFontSizeToFit style={{fontSize: 20, textAlign: 'center'}}>Explota</Text>
           <Animated.View style={[styles.glowContainer, glowAnimation]}>
             <Text
               onPress={() => playSound(letters[position].audio)}
-              style={{fontSize: 100, textAlign: 'center'}}>
+              adjustsFontSizeToFit
+              style={{fontSize: 50, textAlign: 'center'}}>
               {letters[position].name}
             </Text>
           </Animated.View>
@@ -159,7 +163,13 @@ const Globes = () => {
           <Image style={styles.imgCover} source={letters[position].img} />
           <Text
             onPress={() => playSound(letters[position].audio)}
-            style={{fontSize: 35, textAlign: 'center', color: 'white'}}>
+            adjustsFontSizeToFit
+            style={{
+              fontSize: 35,
+              display: 'none',
+              textAlign: 'center',
+              color: 'white',
+            }}>
             {letters[position].labelImg}
           </Text>
         </View>
@@ -167,8 +177,7 @@ const Globes = () => {
       </View>
 
       {/* View Rigth */}
-      <View
-        style={{backgroundColor: '#d2ecff', width: '78%', borderRadius: 30}}>
+      <View style={styles.viewRigth}>
         {/* A */}
         <View
           style={{
@@ -176,6 +185,7 @@ const Globes = () => {
             width: 100,
             alignItems: 'center',
             flexDirection: 'column',
+            position: 'absolute',
             left: letters[0].x,
             top: letters[0].y,
           }}>
@@ -194,6 +204,7 @@ const Globes = () => {
             width: 100,
             alignItems: 'center',
             flexDirection: 'column',
+            position: 'absolute',
             left: letters[1].x,
             top: letters[1].y,
           }}>
@@ -211,6 +222,7 @@ const Globes = () => {
             height: 100,
             width: 100,
             alignItems: 'center',
+            position: 'absolute',
             flexDirection: 'column',
             left: letters[2].x,
             top: letters[2].y,
@@ -229,6 +241,7 @@ const Globes = () => {
             height: 100,
             width: 100,
             alignItems: 'center',
+            position: 'absolute',
             flexDirection: 'column',
             left: letters[3].x,
             top: letters[3].y,
@@ -247,6 +260,7 @@ const Globes = () => {
             height: 100,
             width: 100,
             alignItems: 'center',
+            position: 'absolute',
             flexDirection: 'column',
             left: letters[4].x,
             top: letters[4].y,
@@ -269,7 +283,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     padding: 10,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-around',
     backgroundColor: 'white',
   },
@@ -285,18 +299,26 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   imgCover: {
+    borderRadius: 10,
     width: '100%',
     height: '100%',
     resizeMode: 'contain',
   },
   viewLeft: {
     backgroundColor: '#9ca2ef',
-    height: '100%',
-    width: '20%',
+    height: '20%',
+    width: '100%',
+    padding: 5,
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
     flexWrap: 'wrap',
+  },
+  viewRigth: {
+    backgroundColor: '#d2ecff',
+    width: '100%',
+    height: '78%',
+    borderRadius: 30,
   },
   glowContainer: {
     justifyContent: 'center',
@@ -310,16 +332,16 @@ const styles = StyleSheet.create({
   conteinerLetter: {
     backgroundColor: 'white',
     borderRadius: 10,
-    marginTop: 10,
-    height: 250,
-    width: '95%',
+    // marginTop: 10,
+    height: '100%',
+    width: 100,
   },
   contenerImage: {
-    width: '95%',
+    width: 100,
     backgroundColor: 'white',
     borderRadius: 10,
-    marginTop: 10,
-    height: 300,
+    // marginTop: 10,
+    height: '100%',
   },
 });
 
