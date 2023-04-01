@@ -7,6 +7,7 @@ import ImagesOfLetters from '../views/Dashboard/ImaginesOfLetters/ImagesOfLetter
 import Globes from '../views/Dashboard/Globe/Globos';
 import Videos from '../views/Dashboard/VideosView/Videos';
 import Draw from '../views/Dashboard/Draw';
+import Write from '../views/Dashboard/Write';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,11 @@ const ModalNavigationHome = () => {
         name="Draw"
         component={Draw}
         options={{title: 'Dibuja', headerTitleAlign: 'center'}}
+      />
+      <Stack.Screen
+        name="Write"
+        component={Write}
+        options={{title: 'Escribir', headerTitleAlign: 'center'}}
       />
     </Stack.Navigator>
   );

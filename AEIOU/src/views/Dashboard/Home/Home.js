@@ -49,7 +49,19 @@ const Home = ({navigation}) => {
             <Text
               onPress={() => navigation.navigate('Draw')}
               style={styles.containerTitle}>
-              Dibujar
+              Marcar
+            </Text>
+          </View>
+          {/* Container to Draw with help */}
+          <View style={styles.container}>
+            <Image
+              source={require('../../../../assets/logoLapiz.png')}
+              style={styles.containerImage}
+            />
+            <Text
+              onPress={() => navigation.navigate('Write')}
+              style={styles.containerTitle}>
+              Escribir
             </Text>
           </View>
         </ScrollView>
